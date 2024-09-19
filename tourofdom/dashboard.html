@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>   
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <main class="flex justify-center">
+        <div class="mockup-phone">
+            <div class="camera"></div>
+            <div class="display">
+              <div class="artboard artboard-demo phone-3">
+                <div class="stats shadow">
+                    <div class="stat">
+                      <div id="balance" class="stat-value">9400</div>
+                      <div class="stat-desc">Available Balance</div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+
+                <!-- user action button -->
+                <div>
+                    <button id="btn-addmoney" class="btn btn-lg">Add money</button>
+                    <button id="btn-cashout" class="btn btn-lg">Cash out</button>
+                </div>
+
+                <div class="divider"></div>
+                <div id="add-money-form" class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                    <form class="card-body">
+                      <div class="form-control">
+                        <label class="label">
+                          <span class="label-text">Amount</span>
+                        </label>
+                        <input id="add-amount" type="number" placeholder="Enter Amount" class="input input-bordered" required />
+                      </div>
+                      <div class="form-control mt-6">
+                        <button id="addMoney" class="btn btn-primary">Add Money</button>
+                      </div>
+                    </form>
+                </div>
+                <div class="divider"></div>
+                <div id="cashout-form" class="hidden card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                    <form class="card-body">
+                      <div class="form-control">
+                        <label class="label">
+                          <span class="label-text">Amount</span>
+                        </label>
+                        <input id="withdrawn-amount" type="number" placeholder="Enter Amount" class="input input-bordered" required />
+                      </div>
+                      <div class="form-control mt-6">
+                        <button id="withdraw" class="btn btn-primary">CashOut</button>
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+    </main>
+<script src="./js/features.js"></script>
+<script src="./js/transaction.js"></script>
+</body>
+</html>
