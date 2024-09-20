@@ -1,24 +1,34 @@
 document.getElementById('addMoney').addEventListener('click',function(e){
     e.preventDefault(); // prevent the form from submitting
-    const addedAmount = document.getElementById('add-amount').value;
-    const addedAmountInt = parseInt(addedAmount);
+    // const addedAmountInt = getInputValue();
+    const addedAmountInt = getValue('add-amount');
     
-    const balance = document.getElementById('balance').textContent;
-    const balanceInt = parseInt(balance);
+    const balanceInt = getBalance();
 
     const newBalance = balanceInt + addedAmountInt;
     document.getElementById('balance').textContent = newBalance;
+
+    const p = document.createElement('p');
+    p.textContent = `You have added $${addedAmountInt}. Your total balance is $${newBalance}`;
+
+    document.getElementById('transaction-container').appendChild(p);
+
     
 });
 document.getElementById('withdraw').addEventListener('click',function(e){
     e.preventDefault(); // prevent the form from submitting
-    const withdrawAmount = document.getElementById('withdrawn-amount').value;
-    const withdrawAmountInt = parseInt(withdrawAmount);
+    // const withdrawAmountInt = getWithdrawAmount();
+    const withdrawAmountInt = getValue('withdrawn-amount');
+
     
-    const balance = document.getElementById('balance').textContent;
-    const balanceInt = parseInt(balance);
+    const balanceInt = getBalance();
 
     const newBalance = balanceInt - withdrawAmountInt;
     document.getElementById('balance').textContent = newBalance;
+
+    const p = document.createElement('p');
+    p.textContent = `You have withdrawn $${withdrawAmountInt}. Your total balance is $${newBalance}`;
+
+    document.getElementById('transaction-container').appendChild(p);
     
 });
