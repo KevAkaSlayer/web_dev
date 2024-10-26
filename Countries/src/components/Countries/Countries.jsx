@@ -35,7 +35,7 @@ const Countries = () => {
                         visitedCountries.map(country => <li key={country.cca2}>{country.name.common}</li>)
                     }
                 </ul>   
-            </div>
+            </div> 
             <div className="flag-container">
                 {
                     visitedFlags.map((flag,idx) => <img key={idx}  src={flag}></img>)

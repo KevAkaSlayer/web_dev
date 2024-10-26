@@ -1,0 +1,42 @@
+[
+    {
+      "id": 1,
+      "cover": "https://i.ibb.co.com/vXLWkX0/1.jpg",
+      "title": "The Lost City of Dreams",
+      "author": "Anya Petrova",
+      "img": "https://i.ibb.co.com/d7pzYFW/boy1.png",
+      "posted_date": "2023-11-22",
+      "readingTime": 5,
+      "hashtags": ["fantasy", "adventure", "magic"]
+    },
+    {
+      "id": 2,
+      "cover": "https://i.ibb.co.com/9nsxBG0/2.png",
+      "title": "Silent Echoes",
+      "author": "Ethan Carter",
+      "img": "https://i.ibb.co.com/nwpLt2F/boy2.jpg",
+      "posted_date": "2023-12-15",
+      "readingTime": 7,
+      "hashtags": ["mystery", "thriller", "suspense"]
+    },
+    {
+      "id": 3,
+      "cover": "https://i.ibb.co.com/DC12ftZ/3.png",
+      "title": "The Celestial Codex",
+      "author": "Elara Quinn",
+      "img": "https://i.ibb.co.com/dmPZwCn/girl1.jpg",
+      "posted_date": "2024-01-08",
+      "readingTime": 10,
+      "hashtags": ["science fiction", "time travel", "aliens"]
+    },
+    {
+      "id": 4,
+      "cover": "https://i.ibb.co.com/TB32StY/4.jpg",
+      "title": "Whispers of the Wind",
+      "author": "Kai Chen",
+      "img": "https://i.ibb.co.com/bzvVVkc/girl2.jpg",
+      "posted_date": "2024-02-29",
+      "readingTime": 6,
+      "hashtags": ["romance", "historical fiction", "love"]
+    }
+  ]
