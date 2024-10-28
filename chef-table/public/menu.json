@@ -1,0 +1,107 @@
+[
+    {
+      "recipe_image": "https://i.ibb.co.com/6R4yN7Q/chicken-curry-recipe.jpg",
+      "recipe_id": 1,
+      "recipe_name": "Chicken Curry",
+      "short_description": "A classic Indian curry with tender chicken and aromatic spices.",
+      "ingredients": [
+        "500g chicken",
+        "1 onion, chopped",
+        "2 cloves garlic, minced",
+        "1 inch ginger, grated",
+        "2 tablespoons curry powder",
+        "1 teaspoon cumin powder",
+        "1/2 teaspoon turmeric powder",
+        "1 can (400ml) coconut milk",
+        "400ml chicken broth"
+      ],
+      "preparing_time": 45,
+      "calories": 350
+    },
+    {
+      "recipe_image": "https://i.ibb.co.com/B2M5qH9/Umamiology-Spaghetti-Bolognese-Recipe-Card16.jpg",
+      "recipe_id": 2,
+      "recipe_name": "Spaghetti Bolognese",
+      "short_description": "A hearty Italian pasta dish with a rich meat sauce.",
+      "ingredients": [
+        "500g ground beef",
+        "1 onion, chopped",
+        "2 cloves garlic, minced",
+        "1 can (400g) crushed tomatoes",
+        "100ml red wine",
+        "1 tablespoon tomato paste",
+        "1 teaspoon dried oregano",
+        "1/2 teaspoon dried basil",
+        "500g spaghetti"
+      ],
+      "preparing_time": 60,
+      "calories": 500
+    },
+    {
+      "recipe_image": "https://i.ibb.co.com/PzPc8XD/Sushi-Rolls-Maki-Sushi-Hosomaki-1106-II.jpg",
+      "recipe_id": 3,
+      "recipe_name": "Sushi",
+      "short_description": "A Japanese dish of cooked rice seasoned with vinegar, topped with raw fish or vegetables.",
+      "ingredients": [
+        "2 cups sushi rice",
+        "2 tablespoons rice vinegar",
+        "1 teaspoon sugar",
+        "1/2 teaspoon salt",
+        "200g sushi-grade salmon",
+        "1 avocado",
+        "1 cucumber",
+        "1 sheet nori"
+      ],
+      "preparing_time": 30,
+      "calories": 250
+    },
+    {
+      "recipe_image": "https://i.ibb.co.com/6bPnphN/pizza-tuna-olive.jpg",
+      "recipe_id": 4,
+      "recipe_name": "Pizza",
+      "short_description": "A classic Italian dish with a thin crust, tomato sauce, and cheese.",
+      "ingredients": [
+        "1 pizza dough",
+        "200g tomato sauce",
+        "150g mozzarella cheese",
+        "100g pepperoni",
+        "1 onion, sliced",
+        "1 green pepper, sliced"
+      ],
+      "preparing_time": 20,
+      "calories": 600
+    },
+    {
+      "recipe_image": "https://i.ibb.co.com/WnM3SJZ/Chicken-Stir-Fry-Pan.jpg",
+      "recipe_id": 5,
+      "recipe_name": "Stir-Fry",
+      "short_description": "A quick and easy Chinese dish with stir-fried vegetables and protein.",
+      "ingredients": [
+        "200g chicken breast, sliced",
+        "2 cloves garlic, minced",
+        "1 onion, sliced",
+        "2 carrots, sliced",
+        "1 broccoli floret, cut into small pieces",
+        "2 tablespoons soy sauce",
+        "1 tablespoon oyster sauce"
+      ],
+      "preparing_time": 15,
+      "calories": 300
+    },
+    {
+      "recipe_image": "https://i.ibb.co.com/2SWPvbG/Garden-salad-thumbnail.jpg",
+      "recipe_id": 6,
+      "recipe_name": "Salad",
+      "short_description": "A refreshing and healthy salad with fresh vegetables.",
+      "ingredients": [
+        "1 head lettuce",
+        "1 tomato, sliced",
+        "1 cucumber, sliced",
+        "1 red onion, sliced",
+        "1 tablespoon olive oil",
+        "1 tablespoon lemon juice"
+      ],
+      "preparing_time": 10,
+      "calories": 150
+    }
+  ]
