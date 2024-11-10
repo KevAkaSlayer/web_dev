@@ -15,7 +15,8 @@ const SignUp = () => {
         console.log(e.target.name.value);
         const email = e.target.name.value;
         const password = e.target.password.value;
-        console.log(email,password)
+        const name = e.target.value;
+        console.log(email,password,name)
         setError('');
         setSuccess(false);
 
@@ -31,8 +32,20 @@ const SignUp = () => {
 
             sendEmailVerification(auth.currentUser)
             .then (()=> {
-                
+                console.log('Email verification sent');
             })
+
+            const profile ={
+                displayName : name
+            }
+            updateProfile(auth.currentUser,profile)
+            .then(() => {
+                console.log('Profile updated');
+            })  
+            .catch(e => {
+                console.log(e);
+            })
+
 
         })
         .catch(e => {
@@ -56,6 +69,12 @@ const SignUp = () => {
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <h5 className="text-3xl font-bold ml-4 p-4">Sign up!</h5>
                     <form onSubmit={handleSignUp} className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input type="text" name="name" placeholder="name" className="input input-bordered" required />
+                        </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
