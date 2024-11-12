@@ -3,6 +3,8 @@ import {
   } from "react-router-dom";
 import Root from "../layouts/Root";
 import Home from "../Pages/Home/Home";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
 
   
   const routes = createBrowserRouter([
@@ -12,9 +14,20 @@ import Home from "../Pages/Home/Home";
       children:[
         {
            path:'/' ,
-           element:<Home/>
+           element:<Home/>,
+           loader:()=>fetch('news.json')
+        },
+        {
+          path: '/login',
+          element:<Login/>
+        },
+        {
+          path: '/register',
+          element:<Register/>
         }
       ]
+        
+      
 
 
     },
