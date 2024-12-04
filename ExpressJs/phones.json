@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "brand": "Apple",
+    "model": "iPhone 14 Pro",
+    "price": 999,
+    "specifications": {
+      "screen_size": "6.1 inches",
+      "battery_capacity": "3200 mAh",
+      "processor": "A16 Bionic",
+      "ram": "6 GB",
+      "storage": ["128 GB", "256 GB", "512 GB", "1 TB"],
+      "camera": {
+        "rear": "48 MP + 12 MP + 12 MP",
+        "front": "12 MP"
+      }
+    },
+    "availability": "In Stock"
+  },
+  {
+    "id": 2,
+    "brand": "Samsung",
+    "model": "Galaxy S23 Ultra",
+    "price": 1199,
+    "specifications": {
+      "screen_size": "6.8 inches",
+      "battery_capacity": "5000 mAh",
+      "processor": "Snapdragon 8 Gen 2",
+      "ram": "12 GB",
+      "storage": ["256 GB", "512 GB", "1 TB"],
+      "camera": {
+        "rear": "200 MP + 12 MP + 10 MP + 10 MP",
+        "front": "12 MP"
+      }
+    },
+    "availability": "Pre-Order"
+  },
+  {
+    "id": 3,
+    "brand": "Google",
+    "model": "Pixel 8 Pro",
+    "price": 899,
+    "specifications": {
+      "screen_size": "6.7 inches",
+      "battery_capacity": "4950 mAh",
+      "processor": "Tensor G3",
+      "ram": "12 GB",
+      "storage": ["128 GB", "256 GB"],
+      "camera": {
+        "rear": "50 MP + 48 MP + 12 MP",
+        "front": "10.8 MP"
+      }
+    },
+    "availability": "In Stock"
+  },
+  {
+    "id": 4,
+    "brand": "OnePlus",
+    "model": "11 Pro",
+    "price": 799,
+    "specifications": {
+      "screen_size": "6.7 inches",
+      "battery_capacity": "5000 mAh",
+      "processor": "Snapdragon 8 Gen 2",
+      "ram": "16 GB",
+      "storage": ["256 GB", "512 GB"],
+      "camera": {
+        "rear": "50 MP + 48 MP + 32 MP",
+        "front": "16 MP"
+      }
+    },
+    "availability": "In Stock"
+  }
+]
