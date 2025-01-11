@@ -2,10 +2,18 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 5000;
+const jwt  = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
-app.use(cors());
+const corsOptions = {
+  origin: ['http://localhost:5173',],
+  credentials: true,
+}
+
+app.use(cors(corsOptions));
 app.use(express.json());
+app.use(cookieParser());
 
 
 app.get('/',(req,res)=>{
@@ -14,6 +22,20 @@ app.get('/',(req,res)=>{
 
 app.listen(port,()=>{{console.log(`Server is running on port ${port}`)}});
 
+
+const verifyToken = (req,res,next)=>{
+  const token = req.cookies?.token;
+  if(!token){
+    return res.status(401).send('Unauthorized');
+  }
+  jwt.verify(token,process.env.JWT_SECRET,(err,decoded)=>{
+    if(err){
+      return res.status(401).send('Unauthorized');
+    }
+    req.user = decoded;
+    next();
+  })
+}
 
 
 
@@ -33,6 +55,26 @@ async function run() {
   try {
     const jobsCollection = client.db("soloSphereDB").collection("Jobs");
     const bidsCollection = client.db("soloSphereDB").collection("bids");
+    
+    app.post('/jwt',async(req,res)=>{
+      const email = req.body;
+      const token = jwt.sign(email,process.env.JWT_SECRET,{expiresIn:'5h'});
+      console.log(token);
+      res
+        .cookie('token', token, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
+        })
+        .send({ success: true })
+    })
+    app.get('/logout',async (req,res)=>{
+      res.clearCookie('token'),{
+        maxAge:0,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
+      }.send({success:true});
+    })
 
 
     app.post('/addJob',async(req,res)=>{
@@ -100,9 +142,14 @@ async function run() {
       res.send(bids);
   })
 
-  app.get('/bids/:email',async(req,res)=>{
+  app.get('/bids/:email',verifyToken,async(req,res)=>{
+    const decodedEmail = req.user?.email
     const isBuyer = req.query.buyer;
     const email = req.params.email;
+
+    if(decodedEmail !== email){
+      return res.status(401).send('Unauthorized Access');
+    }
     let query;
     if(isBuyer){
       query = {buyer:email}
@@ -124,6 +171,24 @@ async function run() {
     const result = await bidsCollection.updateOne(filter,updated);
     res.send(result);
   })
+
+  app.get('/allJobs',async(req,res)=>{
+    const filter = req.query.filter
+    const search = req.query.search;
+    const sort = req.query.sort;
+    let query = {title:{$regex:search,$options:'i'}};
+    let options = {};
+    if(sort){
+      options = {sort:{deadline:sort === 'asc' ? 1 : -1}}
+    }
+
+    if(filter){
+      query.category = filter;
+    }
+    const result = await jobsCollection.find(query,options).toArray();
+    res.send(result);
+  })
+
 
 
   } finally {

@@ -2,10 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
 import BidRequest from "../components/BidRequest";
+import { useAxiosSecure } from "../hooks/useAxiosSecure";
 
 const BidRequests = () => {
   const { user } = useContext(AuthContext)
   const [bids, setBids] = useState([])
+  const axiosSecure = useAxiosSecure()
 
   useEffect(() => {
     if (user) {
@@ -15,7 +17,7 @@ const BidRequests = () => {
 
   const fetchAllBids = async () => {
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/bids/${user?.email}?buyer=true`);
+      const { data } = await axiosSecure.get(`/bids/${user?.email}?buyer=true`);
       setBids(data);
     } catch (error) {
       console.error('Failed to fetch jobs:', error.message);
