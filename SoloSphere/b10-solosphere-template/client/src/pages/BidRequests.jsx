@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
 import BidRequest from "../components/BidRequest";
-import { useAxiosSecure } from "../hooks/useAxiosSecure";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const BidRequests = () => {
   const { user } = useContext(AuthContext)

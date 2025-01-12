@@ -1,31 +1,36 @@
 import axios from 'axios'
-import { AuthContext } from '../providers/AuthProvider'
-import { useContext, useEffect } from 'react' 
+import useAuth from './useAuth'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const axiosSecure = axios.create({
-    baseURL: import.meta.env.VITE_API_URL,
-    withCredentials: true,
+  baseURL: import.meta.env.VITE_API_URL,
+  withCredentials: true,
 })
 
 const useAxiosSecure = () => {
-    const {logOut} = useContext(AuthContext)
-    const navigate = useNavigate() 
-    useEffect(()=>{
-        axiosSecure.interceptors.response.use(
-            (response) => {
-                return response
-            },
-            async(error) => {
-                console.log(error.response);
-                if(error.response.status === 401 || error.response.status === 403){
-                   logOut()
-                    navigate('/login')
-                }
-            }
+  const navigate = useNavigate()
+  const { logOut } = useAuth()
+  useEffect(() => {
+    axiosSecure.interceptors.response.use(
+      res => {
+        return res
+      },
+      async error => {
+        console.log(
+          'error caught from our very own axios interceptor-->',
+          error.response
         )
-    },[logOut,navigate])
-    return axiosSecure
+        if (error.response.status === 401 || error.response.status === 403) {
+          // logout
+          logOut()
+          // navigate to login
+          navigate('/login')
+        }
+      }
+    )
+  }, [logOut, navigate])
+  return axiosSecure
 }
 
 export default useAxiosSecure

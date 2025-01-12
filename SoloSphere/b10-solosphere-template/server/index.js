@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 const corsOptions = {
-  origin: ['http://localhost:5173',],
+  origin: ['http://localhost:5173'],
   credentials: true,
 }
 
@@ -23,18 +23,17 @@ app.get('/',(req,res)=>{
 app.listen(port,()=>{{console.log(`Server is running on port ${port}`)}});
 
 
-const verifyToken = (req,res,next)=>{
-  const token = req.cookies?.token;
-  if(!token){
-    return res.status(401).send('Unauthorized');
-  }
-  jwt.verify(token,process.env.JWT_SECRET,(err,decoded)=>{
-    if(err){
-      return res.status(401).send('Unauthorized');
+const verifyToken = (req, res, next) => {
+  const token = req.cookies?.token
+  if (!token) return res.status(401).send({ message: 'unauthorized access' })
+  jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+    if (err) {
+      return res.status(401).send({ message: 'unauthorized access' })
     }
-    req.user = decoded;
-    next();
+    req.user = decoded
   })
+
+  next()
 }
 
 
@@ -56,10 +55,13 @@ async function run() {
     const jobsCollection = client.db("soloSphereDB").collection("Jobs");
     const bidsCollection = client.db("soloSphereDB").collection("bids");
     
-    app.post('/jwt',async(req,res)=>{
-      const email = req.body;
-      const token = jwt.sign(email,process.env.JWT_SECRET,{expiresIn:'5h'});
-      console.log(token);
+    app.post('/jwt', async (req, res) => {
+      const email = req.body
+      // create token
+      const token = jwt.sign(email, process.env.SECRET_KEY, {
+        expiresIn: '365d',
+      })
+      console.log(token)
       res
         .cookie('token', token, {
           httpOnly: true,
@@ -68,12 +70,16 @@ async function run() {
         })
         .send({ success: true })
     })
-    app.get('/logout',async (req,res)=>{
-      res.clearCookie('token'),{
-        maxAge:0,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
-      }.send({success:true});
+
+    // logout || clear cookie from browser
+    app.get('/logout', async (req, res) => {
+      res
+        .clearCookie('token', {
+          maxAge: 0,
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
+        })
+        .send({ success: true })
     })
 
 
