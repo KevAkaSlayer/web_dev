@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
+
 const Card = ({ plant }) => {
-  const { name, category, price, quantity, image ,_id } = plant || {}
+  const { name, category, price, quantity, image, _id } = plant || {}
   return (
     <Link
       to={`/plant/${_id}`}
@@ -43,7 +44,9 @@ const Card = ({ plant }) => {
         <div className='flex flex-row items-center gap-1'>
           <div className='font-semibold'> Price: {price}$</div>
         </div>
+        
       </div>
+
     </Link>
   )
 }
