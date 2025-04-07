@@ -2,8 +2,8 @@ import React from 'react';
 
 const Navbar = () => {
     return (
-        <div>
-            <div class="navbar bg-base-100 shadow-sm">
+        <>
+            <div class="navbar fixed z-10 bg-opacity-30 max-w-screen-xl mx-auto bg-black text-white ">
                 <div class="flex-1">
                     <a class="btn btn-ghost text-xl">Bistro Boss</a>
                 </div>
@@ -38,7 +38,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
