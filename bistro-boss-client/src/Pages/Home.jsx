@@ -27,6 +27,7 @@ const Home = () => {
 
     return (
         <>
+            <title>Home</title>
             <div className="container mx-auto ">
                 <div className="carousel h-[600px]">
                     {/* Slide 1 */}
