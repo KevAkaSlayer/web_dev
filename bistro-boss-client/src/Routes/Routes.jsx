@@ -1,31 +1,29 @@
-import {
-  createBrowserRouter,
-
-} from "react-router-dom";
-import MainLayout from "../Layout/MainLayout";
-import Home from "../Pages/Home";
-import Menu from "../Pages/Menu";
-import Order from "../Pages/Order";
-
+import React from 'react';
+import { createBrowserRouter } from 'react-router-dom';
+import MainLayout from '../Layout/MainLayout';
+import Home from '../Pages/Home';
+import Menu from '../Pages/Menu';
+import Order from '../Pages/Order';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <MainLayout />,
+    path: '/',
+    element: <MainLayout />,  
     children: [
       {
-        path: "/",
-        element: <Home />,
+        index: true,      // renders at '/'
+        element: <Home />
       },
       {
-        path: "/menu",
-        element: <Menu />,
+        // Menu with optional category param
+        path: 'menu/:category?', 
+        element: <Menu />
       },
       {
-        path: "/order",
-        element: <Order />,
+        // Order route expecting a category param
+        path: 'order/:category', 
+        element: <Order />
       }
-
-    ],
-  },
+    ]
+  }
 ]);

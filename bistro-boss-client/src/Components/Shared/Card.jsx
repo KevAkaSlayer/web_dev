@@ -1,24 +1,25 @@
 import React from 'react';
 
-const Card = () => {
-    // const { name, recipe, image, price } = item;
+const Card = ({item}) => {
+    const { name, recipe, image, price } = item;
     return (
-        <div>
+       
             <div className="card bg-base-100 w-96 shadow-sm">
                 <figure>
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                        alt="Shoes" />
+                        src={image}
+                        alt="img" />
                 </figure>
+                <p className="absolute right-0 mr-4 mt-4 px-4 text-white bg-slate-900">${price}</p>
                 <div className="card-body">
-                    <h2 className="card-title">Card Title</h2>
-                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                    <h2 className="card-title">{name}</h2>
+                    <p>{recipe}</p>
                     <div className="card-actions justify-center">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button className="btn btn-primary">Add to cart</button>
                     </div>
                 </div>
             </div>
-        </div>
+        
     );
 };
 
